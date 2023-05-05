@@ -23,7 +23,7 @@ func Routes(router *chi.Mux, rt *Route) {
 }
 
 func (rt *Route) UserRoutes(r chi.Router) {
-	h := handlers.UserHandler{}
+	h := rt.handler.UserHandler
 	r.Route("/users", func(r chi.Router) {
 		r.Get("/", h.UserListHandler)
 		r.Get("/{id}", h.UserGetByIDHandler)
@@ -34,7 +34,7 @@ func (rt *Route) UserRoutes(r chi.Router) {
 }
 
 func (rt *Route) AuthRoutes(r chi.Router) {
-	h := handlers.AuthHandler{}
+	h := rt.handler.AuthHandler
 	r.Route("/auth", func(r chi.Router) {
 		r.Post("/otp", h.GetOTPHandler)
 		r.Post("/login", h.LoginHandler)

@@ -28,6 +28,8 @@ BEFORE UPDATE ON users
 FOR EACH ROW
 EXECUTE FUNCTION trigger_set_timestamp();
 
+
+
 CREATE TABLE "otp_sessions" (
     "id" bigserial PRIMARY KEY NOT NULL,
     "user_id" bigint NOT NULL REFERENCES users (id),
@@ -41,6 +43,8 @@ CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON otp_sessions
 FOR EACH ROW
 EXECUTE FUNCTION trigger_set_timestamp();
+
+
 
 CREATE TABLE "auth_sessions" (
     "id" bigserial PRIMARY KEY NOT NULL,

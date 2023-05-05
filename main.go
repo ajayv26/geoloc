@@ -24,7 +24,7 @@ import (
 )
 
 const (
-	envPrefix string = "geoloc"
+	envPrefix string = "newDB"
 )
 
 func main() {
@@ -32,7 +32,7 @@ func main() {
 	godotenv.Load()
 
 	var (
-		rootFlagSet = flag.NewFlagSet("geoloc", flag.ExitOnError)
+		rootFlagSet = flag.NewFlagSet("newDB", flag.ExitOnError)
 		run         = rootFlagSet.Bool("run", false, "runs db run the server")
 		migrateup   = rootFlagSet.Bool("migrateup", false, "migrates up db")
 		migratedown = rootFlagSet.Bool("migratedown", false, "migrates down db")
@@ -53,7 +53,7 @@ func main() {
 				_, _, dbSource := LoadConfig()
 				dbmigrate.RunMigrateUp(dbSource)
 			}
-			if *migrateup {
+			if *migratedown {
 				_, _, dbSource := LoadConfig()
 				dbmigrate.RunMigrateDown(dbSource)
 			}
