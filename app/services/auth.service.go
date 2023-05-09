@@ -4,9 +4,9 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"geoloc/helpers"
-	"geoloc/models"
-	"geoloc/stores"
+	"geoloc/app/helpers"
+	"geoloc/app/models"
+	"geoloc/app/stores"
 	"time"
 
 	"github.com/form3tech-oss/jwt-go"

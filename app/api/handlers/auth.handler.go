@@ -3,9 +3,9 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"geoloc/models"
-	"geoloc/services"
-	"geoloc/stores"
+	"geoloc/app/models"
+	"geoloc/app/services"
+	"geoloc/app/stores"
 	"net/http"
 
 	"github.com/go-chi/render"

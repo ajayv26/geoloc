@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"geoloc/models"
-	"geoloc/stores"
+	"geoloc/app/models"
+	"geoloc/app/stores"
 )
 
 type UserService struct {

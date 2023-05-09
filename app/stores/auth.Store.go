@@ -3,7 +3,7 @@ package stores
 import (
 	"context"
 	"database/sql"
-	"geoloc/models"
+	"geoloc/app/models"
 	"geoloc/settings"
 
 	"github.com/gofrs/uuid"

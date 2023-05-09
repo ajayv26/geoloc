@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"geoloc/handlers"
+	"geoloc/app/api/handlers"
 
 	"github.com/go-chi/chi"
 )
@@ -19,6 +19,7 @@ func Routes(router *chi.Mux, rt *Route) {
 	router.Route("/api", func(r chi.Router) {
 		rt.UserRoutes(r)
 		rt.AuthRoutes(r)
+		rt.GraphQl(r)
 	})
 }
 
@@ -38,5 +39,13 @@ func (rt *Route) AuthRoutes(r chi.Router) {
 	r.Route("/auth", func(r chi.Router) {
 		r.Post("/otp", h.GetOTPHandler)
 		r.Post("/login", h.LoginHandler)
+	})
+}
+
+func (rt *Route) GraphQl(r chi.Router) {
+	h := rt.handler.GraphQLHandler
+	r.Route("/gql", func(r chi.Router) {
+		r.Handle("/", h.PlayGround())
+		r.Handle("/query", h.Query())
 	})
 }

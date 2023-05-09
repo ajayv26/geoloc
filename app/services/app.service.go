@@ -1,6 +1,8 @@
 package services
 
-import "geoloc/stores"
+import (
+	"geoloc/app/stores"
+)
 
 type Service struct {
 	UserService *UserService
